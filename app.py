@@ -1,7 +1,47 @@
 import streamlit as st
 
-# Color azul para títulos y textos importantes
-azul = "#1E90FF"  # Dodger Blue
+# CSS personalizado para tonos azules y fondo floral suave
+st.markdown(
+    """
+    <style>
+    /* Fondo floral en la parte superior */
+    .main > div:first-child {
+        background: url('https://www.transparenttextures.com/patterns/flowers.png') repeat;
+        background-color: #e3f2fd; /* azul muy claro */
+        padding: 2rem;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+    }
+    
+    /* Encabezado principal azul oscuro */
+    .stTitle {
+        color: #0d47a1 !important; /* azul oscuro */
+        font-weight: 700;
+    }
+    
+    /* Subtítulos con iconos y azul medio */
+    .subtitle {
+        color: #1976d2; /* azul medio */
+        font-weight: 600;
+        margin-top: 1.5rem;
+        margin-bottom: 0.7rem;
+    }
+    
+    /* Texto general */
+    .stText {
+        color: #0d47a1;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    /* Footer con azul suave */
+    footer {
+        color: #1565c0 !important;
+        font-weight: 500;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Tu información personal
 info = {
@@ -15,7 +55,7 @@ Siempre busco aprender, colaborar y crear impacto desde la comunicación.""",
    "Medium": "https://www.linkedin.com/in/grecia-garcia-hoyos-44997933a/",
    "City": "Lima, Perú",
    "Photo": """<a href="https://www.linkedin.com/in/grecia-garcia-hoyos-44997933a/">
-   <img src="https://i.imgur.com/Noy3lNI.jpg" width="200" style="border-radius: 50%;"></a>""",
+   <img src="https://i.imgur.com/Noy3lNI.jpg" width="200" style="border-radius: 20px; border: 3px solid #1976d2;"></a>""",
    "Email": "a20234861@pucp.edu.pe"
 }
 
@@ -25,95 +65,24 @@ endorsements = {
     "img3": "https://i.imgur.com/jakXIXZ.jpeg"
 }
 
-# --- Título principal ---
-st.markdown(f"<h1 style='color:{azul}; text-align:center;'>Portafolio de {info['Full_Name']}</h1>", unsafe_allow_html=True)
+# Título con clase para aplicar CSS
+st.markdown(f'<h1 class="stTitle">Portafolio de {info["Full_Name"]}</h1>', unsafe_allow_html=True)
 
-# --- Foto y presentación con columnas ---
-col1, col2 = st.columns([1, 2])
-with col1:
-    st.markdown(info["Photo"], unsafe_allow_html=True)
-with col2:
-    st.markdown(f"<h3 style='color:{azul};'>{info['Intro']}</h3>", unsafe_allow_html=True)
-    st.write(info["About"])
+# Foto y presentación
+st.markdown(info["Photo"], unsafe_allow_html=True)
+st.subheader(info["Intro"])
+st.write(info["About"])
 
-# --- Contacto ---
-st.markdown(f"<hr style='border:2px solid {azul};'>", unsafe_allow_html=True)
-st.markdown(f"<h2 style='color:{azul};'>📬 Contacto</h2>", unsafe_allow_html=True)
-st.write(f"📧 **Email:** {info['Email']}")
-st.write(f"📍 **Locación:** {info['City']}")
+# Contacto con icono
+st.markdown('<h3 class="subtitle">📬 Contacto</h3>', unsafe_allow_html=True)
+st.write(f"📧 {info['Email']}")
+st.write(f"📍 {info['City']}")
 st.markdown(f"[🔗 LinkedIn]({info['Medium']})")
 
-# --- Galería ---
-st.markdown(f"<hr style='border:2px solid {azul};'>", unsafe_allow_html=True)
-st.markdown(f"<h2 style='color:{azul};'>📸 Galería</h2>", unsafe_allow_html=True)
+# Galería con icono
+st.markdown('<h3 class="subtitle">📸 Galería</h3>', unsafe_allow_html=True)
 st.image([endorsements["img1"], endorsements["img2"], endorsements["img3"]], width=300)
 
-# --- Sobre Grecia ---
-st.markdown(f"<hr style='border:2px solid {azul};'>", unsafe_allow_html=True)
-st.markdown(f"<h2 style='color:{azul};'>Sobre Grecia</h2>", unsafe_allow_html=True)
-st.write("""
-Grecia García Hoyos es estudiante de Publicidad en la PUCP, apasionada por la comunicación creativa con impacto social.  
-Se destaca por ser productiva, puntual y poseer habilidades de liderazgo y organización.
-""")
-
-# --- Experiencia y Metas en dos columnas ---
-col1, col2 = st.columns(2)
-with col1:
-    st.markdown(f"<h3 style='color:{azul};'>Experiencia de trabajo</h3>", unsafe_allow_html=True)
-    st.write("""
-    - Participó en dos voluntariados: uno ambiental en el colegio y otro en CATO como coordinadora de redes sociales de Huellitas PUCP, organización animalista.
-    - Fortaleció creatividad, comunicación digital y trabajo en equipo.
-    """)
-with col2:
-    st.markdown(f"<h3 style='color:{azul};'>Metas de carrera</h3>", unsafe_allow_html=True)
-    st.write("""
-    Grecia busca desarrollarse profesionalmente en comunicación y publicidad,  
-    creando proyectos con impacto social que inspiren y conecten con las personas.
-    """)
-
-# --- Habilidades y Certificaciones ---
-col1, col2 = st.columns(2)
-with col1:
-    st.markdown(f"<h3 style='color:{azul};'>Habilidades</h3>", unsafe_allow_html=True)
-    st.write("""
-    - Edición de video con CapCut  
-    - Diseño gráfico con Canva  
-    - Comunicación digital  
-    - Liderazgo  
-    - Trabajo en equipo  
-    - Creatividad  
-    - Inglés nivel C1 certificado por PUCP
-    """)
-with col2:
-    st.markdown(f"<h3 style='color:{azul};'>Certificaciones</h3>", unsafe_allow_html=True)
-    st.write("Inglés nivel C1 certificado por Idiomas PUCP.")
-
-# --- Logros ---
-st.markdown(f"<hr style='border:2px solid {azul};'>", unsafe_allow_html=True)
-st.markdown(f"<h2 style='color:{azul};'>🏆 Logros</h2>", unsafe_allow_html=True)
-st.write("""
-Ganadora del Concurso de Investigación Académica de Estudios Generales Letras 2024-1,  
-con monografía publicada en:  
-[https://estudios-generales-letras.pucp.edu.pe/investigacion-academica-2024-1-monografias-ganadoras/](https://estudios-generales-letras.pucp.edu.pe/investigacion-academica-2024-1-monografias-ganadoras/)
-""")
-
-# --- Línea de tiempo con estilo ---
-st.markdown(f"<hr style='border:2px solid {azul};'>", unsafe_allow_html=True)
-st.markdown(f"<h2 style='color:{azul}; text-align:center;'>🕒 Mi trayectoria</h2>", unsafe_allow_html=True)
-
-timeline_events = [
-    {"year": "2022", "title": "Egresé del colegio", "description": "Terminé mis estudios escolares en el Colegio Cristo Rey."},
-    {"year": "2023", "title": "Inicio en CATO", "description": "Comencé a estudiar Publicidad en la PUCP (CATO), siendo primer puesto hasta la fecha."},
-    {"year": "2024", "title": "Diseñadora en Huellitas PUCP", "description": "Me uní al voluntariado animalista Huellitas PUCP como diseñadora audiovisual."},
-    {"year": "2025", "title": "Coordinadora de Huellitas PUCP", "description": "Asumí el rol de coordinadora de redes sociales en Huellitas PUCP."},
-    {"year": "2025", "title": "Ganadora del Concurso de Investigación", "description": "Fui ganadora del concurso de investigación académica de EE.GG.LL. con una monografía publicada en la web oficial."},
-]
-
-for event in timeline_events:
-    st.markdown(f"<h4 style='color:{azul}; margin-bottom: 2px;'>{event['year']} - {event['title']}</h4>", unsafe_allow_html=True)
-    st.write(event["description"])
-    st.markdown("<br>", unsafe_allow_html=True)
-
-# --- Footer ---
-st.markdown(f"<hr style='border:2px solid {azul};'>", unsafe_allow_html=True)
-st.write("Creado con ❤️ usando Streamlit")
+# Footer opcional
+st.markdown("---")
+st.write('<p style="color:#1565c0; font-weight: 500;">Creado con ❤️ usando Streamlit</p>', unsafe_allow_html=True)
