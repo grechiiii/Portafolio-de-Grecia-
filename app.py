@@ -11,7 +11,8 @@ Siempre busco aprender, colaborar y crear impacto desde la comunicación.""",
    "Tableau": "",
    "Medium": "https://www.linkedin.com/in/grecia-garcia-hoyos-44997933a/",
    "City": "Lima, Perú",
-   "Photo":"""<a href="https://www.linkedin.com/in/grecia-garcia-hoyos-44997933a/"><img src="https://imgur.com/Noy3lNI" width="200" alt="Grecia García Hoyos" title="Grecia García Hoyos"></a>""",
+"Photo": """<a href="https://www.linkedin.com/in/grecia-garcia-hoyos-44997933a/">
+<img src="https://i.imgur.com/Noy3lNI.jpg" width="200"></a>"""
    "Email": "a20234861@pucp.edu.pe"
 }
 
