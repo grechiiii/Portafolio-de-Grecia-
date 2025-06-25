@@ -6,25 +6,21 @@ azul_medio = "#1976D2"
 azul_claro = "#42A5F5"
 celeste = "#90CAF9"
 celeste_suave = "#E3F2FD"
-texto_color = "#0B3D91"  # azul oscuro para texto, legible
+texto_color = "#0B3D91"
 
-# CSS actualizado y limpio
+# CSS personalizado
 st.markdown(
     f"""
     <style>
-    /* Fondo floral suave en la cabecera */
     .cabecera {{
         background: linear-gradient(135deg, {celeste_suave} 0%, {celeste} 100%);
         background-image: url('https://www.transparenttextures.com/patterns/flowers.png');
-        background-repeat: repeat;
         border-radius: 15px;
         padding: 2rem 2rem;
         margin-bottom: 2.5rem;
         box-shadow: 0 8px 15px rgba(25, 118, 210, 0.3);
         text-align: center;
     }}
-
-    /* Título principal con degradado y sombra */
     .titulo-principal {{
         font-size: 2.8rem;
         font-weight: 900;
@@ -34,18 +30,14 @@ st.markdown(
         text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         margin-bottom: 1rem;
     }}
-
-    /* Foto con borde celeste y sombra */
     .foto-perfil {{
         border-radius: 50%;
         border: 5px solid {celeste};
         box-shadow: 0 4px 12px rgba(25, 118, 210, 0.4);
-        max-width: 120px; /* Foto más pequeña */
+        max-width: 100px;
         margin: 0 auto 1rem auto;
         display: block;
     }}
-
-    /* Subtítulos con iconos y color visible */
     h2 {{
         color: {azul_medio} !important;
         font-weight: 700;
@@ -56,10 +48,7 @@ st.markdown(
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }}
-
-    /* Contenedor secciones con fondo blanco y sombra */
     .seccion {{
         background: white;
         border-radius: 12px;
@@ -67,25 +56,17 @@ st.markdown(
         padding: 1.5rem 2rem;
         margin-bottom: 2rem;
     }}
-
-    /* Texto general */
     p, li {{
         color: {texto_color};
         font-size: 1.1rem;
         line-height: 1.5;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }}
-
-    /* Footer estilizado */
     footer {{
         text-align: center;
-        color: {azul_medio} !important;
+        color: {azul_medio};
         margin-top: 3rem;
         font-weight: 600;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }}
-
-    /* Galería imágenes con borde y sombra */
     .galeria img {{
         border-radius: 12px;
         box-shadow: 0 6px 15px rgba(25, 118, 210, 0.2);
@@ -94,39 +75,28 @@ st.markdown(
         max-width: 280px;
         transition: transform 0.3s ease;
     }}
-
     .galeria img:hover {{
         transform: scale(1.05);
-        box-shadow: 0 10px 25px rgba(25, 118, 210, 0.4);
     }}
-
-    /* Timeline eventos */
     .evento-timeline {{
         border-left: 4px solid {azul_medio};
         padding-left: 1rem;
         margin-bottom: 1.2rem;
     }}
-
     .evento-timeline h4 {{
         margin-bottom: 0.2rem;
         color: {azul_oscuro};
     }}
-
-    /* Hipervínculo en logros */
     a.logro-link {{
         color: {azul_medio};
         font-weight: 600;
         text-decoration: none;
         border-bottom: 2px solid {celeste};
-        transition: color 0.3s ease, border-bottom-color 0.3s ease;
     }}
-
     a.logro-link:hover {{
         color: {azul_oscuro};
         border-bottom-color: {azul_oscuro};
     }}
-
-    /* Contenedor imágenes logros */
     .imagenes-logros {{
         display: flex;
         gap: 20px;
@@ -134,24 +104,21 @@ st.markdown(
         justify-content: center;
         margin-top: 1rem;
     }}
-
     .imagenes-logros img {{
         border-radius: 10px;
         max-width: 250px;
         box-shadow: 0 5px 15px rgba(25, 118, 210, 0.25);
         transition: transform 0.3s ease;
     }}
-
     .imagenes-logros img:hover {{
         transform: scale(1.07);
-        box-shadow: 0 10px 30px rgba(25, 118, 210, 0.4);
     }}
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-# Info personal
+# Información personal
 info = {
     "Full_Name": "Grecia García Hoyos",
     "Intro": "Estudiante de Publicidad y apasionada por la comunicación creativa con impacto social",
@@ -169,9 +136,9 @@ endorsements = {
     "img3": "https://i.imgur.com/jakXIXZ.jpeg"
 }
 
-# Cabecera con fondo floral y título
+# Cabecera
 st.markdown(f'<div class="cabecera">', unsafe_allow_html=True)
-st.markdown(f'<img src="{info["Photo"]}" alt="Foto de perfil" class="foto-perfil">', unsafe_allow_html=True)
+st.markdown(f'<img src="{info["Photo"]}" class="foto-perfil">', unsafe_allow_html=True)
 st.markdown(f'<h1 class="titulo-principal">Portafolio de {info["Full_Name"]}</h1>', unsafe_allow_html=True)
 st.markdown(f'<h3 style="color:{azul_oscuro}; margin-top:0;">{info["Intro"]}</h3>', unsafe_allow_html=True)
 st.markdown(f'<p style="max-width:700px; margin: 0 auto;">{info["About"]}</p>', unsafe_allow_html=True)
@@ -180,9 +147,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 # Sección Contacto
 st.markdown('<div class="seccion">', unsafe_allow_html=True)
 st.markdown('📬 <h2>Contacto</h2>', unsafe_allow_html=True)
-st.markdown(f'<p>📧 <b>Email:</b> {info["Email"]}</p>', unsafe_allow_html=True)
-st.markdown(f'<p>📍 <b>Locación:</b> {info["City"]}</p>', unsafe_allow_html=True)
-st.markdown(f'<p>🔗 <a href="{info["Medium"]}" target="_blank">LinkedIn</a></p>', unsafe_allow_html=True)
+st.markdown(f'📧 {info["Email"]}  \n📍 {info["City"]}  \n[🔗 LinkedIn]({info["Medium"]})')
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Galería
@@ -194,68 +159,58 @@ st.markdown('</div>', unsafe_allow_html=True)
 # Sobre Grecia
 st.markdown('<div class="seccion">', unsafe_allow_html=True)
 st.markdown('🌟 <h2>Sobre Grecia</h2>', unsafe_allow_html=True)
-st.markdown(f'<p>Grecia García Hoyos es estudiante de Publicidad en la PUCP, apasionada por la comunicación creativa con impacto social. Se destaca por ser productiva, puntual y poseer habilidades de liderazgo y organización.</p>', unsafe_allow_html=True)
+st.markdown('Grecia García Hoyos es estudiante de Publicidad en la PUCP, apasionada por la comunicación creativa con impacto social. Se destaca por ser productiva, puntual y poseer habilidades de liderazgo y organización.')
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Experiencia y Metas en columnas
+# Experiencia y Metas
 col1, col2 = st.columns(2)
 
 with col1:
     st.markdown('<div class="seccion">', unsafe_allow_html=True)
     st.markdown('💼 <h2>Experiencia de trabajo</h2>', unsafe_allow_html=True)
     st.markdown("""
-    <ul>
-    <li>Participó en dos voluntariados: uno ambiental en el colegio y otro en CATO como coordinadora de redes sociales de Huellitas PUCP, organización animalista.</li>
-    <li>Fortaleció creatividad, comunicación digital y trabajo en equipo.</li>
-    </ul>
-    """, unsafe_allow_html=True)
+    - Voluntariado ambiental en el colegio  
+    - Coordinadora de redes sociales en Huellitas PUCP  
+    - Fortaleció creatividad, comunicación digital y trabajo en equipo
+    """)
     st.markdown('</div>', unsafe_allow_html=True)
 
 with col2:
     st.markdown('<div class="seccion">', unsafe_allow_html=True)
     st.markdown('🎯 <h2>Metas de carrera</h2>', unsafe_allow_html=True)
-    st.markdown("""
-    <p>Grecia busca desarrollarse profesionalmente en comunicación y publicidad, creando proyectos con impacto social que inspiren y conecten con las personas.</p>
-    """, unsafe_allow_html=True)
+    st.markdown("Desarrollarse profesionalmente en comunicación y publicidad, creando proyectos con impacto social.")
     st.markdown('</div>', unsafe_allow_html=True)
 
-# Habilidades y Certificaciones en columnas
-col1, col2 = st.columns(2)
+# Habilidades y Certificaciones
+col3, col4 = st.columns(2)
 
-with col1:
+with col3:
     st.markdown('<div class="seccion">', unsafe_allow_html=True)
     st.markdown('🛠️ <h2>Habilidades</h2>', unsafe_allow_html=True)
     st.markdown("""
-    <ul>
-    <li>Edición de video con CapCut</li>
-    <li>Diseño gráfico con Canva</li>
-    <li>Comunicación digital</li>
-    <li>Liderazgo</li>
-    <li>Trabajo en equipo</li>
-    <li>Creatividad</li>
-    <li>Inglés nivel C1 certificado por PUCP</li>
-    </ul>
-    """, unsafe_allow_html=True)
+    - Edición de video (CapCut)  
+    - Diseño gráfico (Canva)  
+    - Comunicación digital  
+    - Liderazgo y trabajo en equipo  
+    - Creatividad  
+    - Inglés C1 (PUCP)
+    """)
     st.markdown('</div>', unsafe_allow_html=True)
 
-with col2:
+with col4:
     st.markdown('<div class="seccion">', unsafe_allow_html=True)
     st.markdown('📜 <h2>Certificaciones</h2>', unsafe_allow_html=True)
-    st.markdown('<p>Inglés nivel C1 certificado por Idiomas PUCP.</p>', unsafe_allow_html=True)
+    st.markdown("Inglés nivel C1 certificado por Idiomas PUCP.")
     st.markdown('</div>', unsafe_allow_html=True)
 
-# Logros con imágenes y link bonito
+# Logros
 st.markdown('<div class="seccion">', unsafe_allow_html=True)
 st.markdown('🏆 <h2>Logros</h2>', unsafe_allow_html=True)
 st.markdown("""
-<p>Ganadora del Concurso de Investigación Académica de Estudios Generales Letras 2024-1, con monografía publicada en:
-<a class="logro-link" href="https://estudios-generales-letras.pucp.edu.pe/investigacion-academica-2024-1-monografias-ganadoras/" target="_blank">
-Sitio oficial de Estudios Generales Letras PUCP
-</a>
-</p>
-""", unsafe_allow_html=True)
+Ganadora del Concurso de Investigación Académica 2024-1:  
+[🔗 Monografía publicada](https://estudios-generales-letras.pucp.edu.pe/investigacion-academica-2024-1-monografias-ganadoras/)
+""")
 
-# Imágenes logros alineadas
 st.markdown("""
 <div class="imagenes-logros">
     <img src="https://i.imgur.com/YQx2CP1.jpeg" alt="Logro 1">
@@ -264,16 +219,16 @@ st.markdown("""
 """, unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Línea de tiempo con estilo
+# Línea de tiempo
 st.markdown('<div class="seccion">', unsafe_allow_html=True)
 st.markdown('🕒 <h2>Mi trayectoria</h2>', unsafe_allow_html=True)
 
 timeline_events = [
-    {"year": "2022", "title": "Egresé del colegio", "description": "Terminé mis estudios escolares en el Colegio Cristo Rey."},
-    {"year": "2023", "title": "Inicio en CATO", "description": "Comencé a estudiar Publicidad en la PUCP (CATO), siendo primer puesto hasta la fecha."},
-    {"year": "2024", "title": "Diseñadora en Huellitas PUCP", "description": "Me uní al voluntariado animalista Huellitas PUCP como diseñadora audiovisual."},
-    {"year": "2025", "title": "Coordinadora de Huellitas PUCP", "description": "Asumí el rol de coordinadora de redes sociales en Huellitas PUCP."},
-    {"year": "2025", "title": "Ganadora del Concurso de Investigación", "description": "Fui ganadora del concurso de investigación académica de EE.GG.LL. con una monografía publicada en la web oficial."},
+    {"year": "2022", "title": "Egresé del colegio", "description": "Terminé mis estudios en el Colegio Cristo Rey."},
+    {"year": "2023", "title": "Inicio en CATO", "description": "Empecé Publicidad en la PUCP. Primer puesto desde entonces."},
+    {"year": "2024", "title": "Diseñadora en Huellitas PUCP", "description": "Diseño audiovisual en voluntariado animalista."},
+    {"year": "2025", "title": "Coordinadora de Huellitas PUCP", "description": "Lideré redes sociales y campañas digitales."},
+    {"year": "2025", "title": "Ganadora del Concurso", "description": "Mi monografía fue publicada por EE.GG.LL PUCP."}
 ]
 
 for event in timeline_events:
@@ -286,7 +241,8 @@ for event in timeline_events:
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Footer estilizado
+# Footer
 st.markdown('<footer>Creado con ❤️ usando Streamlit</footer>', unsafe_allow_html=True)
+
 
 
