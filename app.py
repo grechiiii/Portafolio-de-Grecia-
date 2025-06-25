@@ -1,13 +1,14 @@
 import streamlit as st
 
-# Definimos una paleta de azules y celestes
+# Colores
 azul_oscuro = "#0D47A1"
 azul_medio = "#1976D2"
 azul_claro = "#42A5F5"
 celeste = "#90CAF9"
 celeste_suave = "#E3F2FD"
+texto_color = "#0B3D91"  # color azul oscuro para texto para evitar blanco
 
-# CSS para diseño moderno con degradados, bordes, sombras y fondo floral sutil
+# CSS actualizado
 st.markdown(
     f"""
     <style>
@@ -17,7 +18,7 @@ st.markdown(
         background-image: url('https://www.transparenttextures.com/patterns/flowers.png');
         background-repeat: repeat;
         border-radius: 15px;
-        padding: 2.5rem 2rem;
+        padding: 2rem 2rem;
         margin-bottom: 2.5rem;
         box-shadow: 0 8px 15px rgba(25, 118, 210, 0.3);
         text-align: center;
@@ -25,7 +26,7 @@ st.markdown(
 
     /* Título principal con degradado y sombra */
     .titulo-principal {{
-        font-size: 3rem;
+        font-size: 2.8rem;
         font-weight: 900;
         background: linear-gradient(90deg, {azul_oscuro}, {azul_medio});
         -webkit-background-clip: text;
@@ -39,19 +40,19 @@ st.markdown(
         border-radius: 50%;
         border: 5px solid {celeste};
         box-shadow: 0 4px 12px rgba(25, 118, 210, 0.4);
-        max-width: 220px;
+        max-width: 160px; /* Más pequeña que antes */
         margin: 0 auto 1rem auto;
         display: block;
     }}
 
-    /* Subtítulos con iconos y color */
+    /* Subtítulos con iconos y color (se asegura que no sean blancos) */
     h2 {{
-        color: {azul_medio};
+        color: {azul_medio} !important;
         font-weight: 700;
         margin-top: 2rem;
         margin-bottom: 1rem;
         border-bottom: 3px solid {celeste};
-        padding-bottom: 0.25rem;
+        padding-bottom: 0.3rem;
         display: flex;
         align-items: center;
         gap: 0.5rem;
@@ -67,9 +68,9 @@ st.markdown(
         margin-bottom: 2rem;
     }}
 
-    /* Texto de parrafos */
+    /* Texto general */
     p, li {{
-        color: {azul_oscuro};
+        color: {texto_color};
         font-size: 1.1rem;
         line-height: 1.5;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -90,7 +91,7 @@ st.markdown(
         box-shadow: 0 6px 15px rgba(25, 118, 210, 0.2);
         margin-right: 15px;
         margin-bottom: 15px;
-        max-width: 300px;
+        max-width: 280px;
         transition: transform 0.3s ease;
     }}
 
@@ -110,6 +111,42 @@ st.markdown(
         margin-bottom: 0.2rem;
         color: {azul_oscuro};
     }}
+
+    /* Estilo para hipervínculo en Logros */
+    a.logro-link {{
+        color: {azul_medio};
+        font-weight: 600;
+        text-decoration: none;
+        border-bottom: 2px solid {celeste};
+        transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    }}
+
+    a.logro-link:hover {{
+        color: {azul_oscuro};
+        border-bottom-color: {azul_oscuro};
+    }}
+
+    /* Contenedor imágenes logros */
+    .imagenes-logros {{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1rem;
+    }}
+
+    .imagenes-logros img {{
+        border-radius: 10px;
+        max-width: 250px;
+        box-shadow: 0 5px 15px rgba(25, 118, 210, 0.25);
+        transition: transform 0.3s ease;
+    }}
+
+    .imagenes-logros img:hover {{
+        transform: scale(1.07);
+        box-shadow: 0 10px 30px rgba(25, 118, 210, 0.4);
+    }}
+
     </style>
     """,
     unsafe_allow_html=True,
@@ -152,7 +189,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 # Galería
 st.markdown('<div class="seccion galeria">', unsafe_allow_html=True)
 st.markdown('📸 <h2>Galería</h2>', unsafe_allow_html=True)
-st.image([endorsements["img1"], endorsements["img2"], endorsements["img3"]], width=300)
+st.image([endorsements["img1"], endorsements["img2"], endorsements["img3"]], width=280)
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Sobre Grecia
@@ -208,15 +245,23 @@ with col2:
     st.markdown('<p>Inglés nivel C1 certificado por Idiomas PUCP.</p>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
-# Logros
+# Logros con imágenes y link bonito
 st.markdown('<div class="seccion">', unsafe_allow_html=True)
 st.markdown('🏆 <h2>Logros</h2>', unsafe_allow_html=True)
 st.markdown("""
 <p>Ganadora del Concurso de Investigación Académica de Estudios Generales Letras 2024-1, con monografía publicada en:
-<a href="https://estudios-generales-letras.pucp.edu.pe/investigacion-academica-2024-1-monografias-ganadoras/" target="_blank">
-https://estudios-generales-letras.pucp.edu.pe/investigacion-academica-2024-1-monografias-ganadoras/
+<a class="logro-link" href="https://estudios-generales-letras.pucp.edu.pe/investigacion-academica-2024-1-monografias-ganadoras/" target="_blank">
+Sitio oficial de Estudios Generales Letras PUCP
 </a>
 </p>
+""", unsafe_allow_html=True)
+
+# Imágenes logros alineadas
+st.markdown("""
+<div class="imagenes-logros">
+    <img src="https://i.imgur.com/YQx2CP1.jpeg" alt="Logro 1">
+    <img src="https://i.imgur.com/OvFF2iU.jpeg" alt="Logro 2">
+</div>
 """, unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
@@ -244,3 +289,4 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 # Footer estilizado
 st.markdown('<footer>Creado con ❤️ usando Streamlit</footer>', unsafe_allow_html=True)
+
