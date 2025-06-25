@@ -13,7 +13,7 @@ Siempre busco aprender, colaborar y crear impacto desde la comunicación.""",
    "City": "Lima, Perú",
 "Photo": """<a href="https://www.linkedin.com/in/grecia-garcia-hoyos-44997933a/">
 <img src="https://i.imgur.com/Noy3lNI.jpg" width="200"></a>"""
-   "Email": "a20234861@pucp.edu.pe"
+   "Email":"a20234861@pucp.edu.pe"
 }
 
 endorsements = {
