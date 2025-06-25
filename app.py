@@ -6,9 +6,9 @@ azul_medio = "#1976D2"
 azul_claro = "#42A5F5"
 celeste = "#90CAF9"
 celeste_suave = "#E3F2FD"
-texto_color = "#0B3D91"  # color azul oscuro para texto para evitar blanco
+texto_color = "#0B3D91"  # azul oscuro para texto, legible
 
-# CSS actualizado
+# CSS actualizado y limpio
 st.markdown(
     f"""
     <style>
@@ -40,12 +40,12 @@ st.markdown(
         border-radius: 50%;
         border: 5px solid {celeste};
         box-shadow: 0 4px 12px rgba(25, 118, 210, 0.4);
-        max-width: 160px; /* Más pequeña que antes */
+        max-width: 120px; /* Foto más pequeña */
         margin: 0 auto 1rem auto;
         display: block;
     }}
 
-    /* Subtítulos con iconos y color (se asegura que no sean blancos) */
+    /* Subtítulos con iconos y color visible */
     h2 {{
         color: {azul_medio} !important;
         font-weight: 700;
@@ -59,7 +59,7 @@ st.markdown(
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }}
 
-    /* Contenedor de secciones con sombra y fondo blanco */
+    /* Contenedor secciones con fondo blanco y sombra */
     .seccion {{
         background: white;
         border-radius: 12px;
@@ -85,7 +85,7 @@ st.markdown(
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }}
 
-    /* Imágenes galería con borde y sombra */
+    /* Galería imágenes con borde y sombra */
     .galeria img {{
         border-radius: 12px;
         box-shadow: 0 6px 15px rgba(25, 118, 210, 0.2);
@@ -112,7 +112,7 @@ st.markdown(
         color: {azul_oscuro};
     }}
 
-    /* Estilo para hipervínculo en Logros */
+    /* Hipervínculo en logros */
     a.logro-link {{
         color: {azul_medio};
         font-weight: 600;
@@ -146,13 +146,12 @@ st.markdown(
         transform: scale(1.07);
         box-shadow: 0 10px 30px rgba(25, 118, 210, 0.4);
     }}
-
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-# Información personal
+# Info personal
 info = {
     "Full_Name": "Grecia García Hoyos",
     "Intro": "Estudiante de Publicidad y apasionada por la comunicación creativa con impacto social",
@@ -289,4 +288,5 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 # Footer estilizado
 st.markdown('<footer>Creado con ❤️ usando Streamlit</footer>', unsafe_allow_html=True)
+
 
