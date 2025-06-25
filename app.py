@@ -12,15 +12,6 @@ texto_color = "#0B3D91"
 st.markdown(
     f"""
     <style>
-    .cabecera {{
-        background: linear-gradient(135deg, {celeste_suave} 0%, {celeste} 100%);
-        background-image: url('https://www.transparenttextures.com/patterns/flowers.png');
-        border-radius: 15px;
-        padding: 2rem 2rem;
-        margin-bottom: 2.5rem;
-        box-shadow: 0 8px 15px rgba(25, 118, 210, 0.3);
-        text-align: center;
-    }}
     .titulo-principal {{
         font-size: 2.8rem;
         font-weight: 900;
@@ -34,8 +25,8 @@ st.markdown(
         border-radius: 50%;
         border: 5px solid {celeste};
         box-shadow: 0 4px 12px rgba(25, 118, 210, 0.4);
-        max-width: 100px;
-        margin: 0 auto 1rem auto;
+        max-width: 140px;
+        margin-bottom: 1rem;
         display: block;
     }}
     h2 {{
@@ -70,9 +61,8 @@ st.markdown(
     .galeria img {{
         border-radius: 12px;
         box-shadow: 0 6px 15px rgba(25, 118, 210, 0.2);
-        margin-right: 15px;
         margin-bottom: 15px;
-        max-width: 280px;
+        max-width: 100%;
         transition: transform 0.3s ease;
     }}
     .galeria img:hover {{
@@ -136,12 +126,19 @@ endorsements = {
     "img3": "https://i.imgur.com/jakXIXZ.jpeg"
 }
 
-# Cabecera
-st.markdown(f'<div class="cabecera">', unsafe_allow_html=True)
-st.markdown(f'<img src="{info["Photo"]}" class="foto-perfil">', unsafe_allow_html=True)
-st.markdown(f'<h1 class="titulo-principal">Portafolio de {info["Full_Name"]}</h1>', unsafe_allow_html=True)
-st.markdown(f'<h3 style="color:{azul_oscuro}; margin-top:0;">{info["Intro"]}</h3>', unsafe_allow_html=True)
-st.markdown(f'<p style="max-width:700px; margin: 0 auto;">{info["About"]}</p>', unsafe_allow_html=True)
+# Cabecera en columnas
+st.markdown('<div class="seccion">', unsafe_allow_html=True)
+
+col_foto, col_texto = st.columns([1, 3])
+
+with col_foto:
+    st.markdown(f'<img src="{info["Photo"]}" class="foto-perfil">', unsafe_allow_html=True)
+
+with col_texto:
+    st.markdown(f'<h1 class="titulo-principal">Portafolio de {info["Full_Name"]}</h1>', unsafe_allow_html=True)
+    st.markdown(f'<h3 style="color:{azul_oscuro}; margin-top:0;">{info["Intro"]}</h3>', unsafe_allow_html=True)
+    st.markdown(f'<p style="max-width:700px;">{info["About"]}</p>', unsafe_allow_html=True)
+
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Sección Contacto
@@ -150,10 +147,18 @@ st.markdown('📬 <h2>Contacto</h2>', unsafe_allow_html=True)
 st.markdown(f'📧 {info["Email"]}  \n📍 {info["City"]}  \n[🔗 LinkedIn]({info["Medium"]})')
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Galería
+# Galería ordenada
 st.markdown('<div class="seccion galeria">', unsafe_allow_html=True)
 st.markdown('📸 <h2>Galería</h2>', unsafe_allow_html=True)
-st.image([endorsements["img1"], endorsements["img2"], endorsements["img3"]], width=280)
+
+gal_col1, gal_col2, gal_col3 = st.columns(3)
+with gal_col1:
+    st.image(endorsements["img1"], width=250)
+with gal_col2:
+    st.image(endorsements["img2"], width=250)
+with gal_col3:
+    st.image(endorsements["img3"], width=250)
+
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Sobre Grecia
@@ -241,8 +246,6 @@ for event in timeline_events:
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Footer
-st.markdown('<footer>Creado con ❤️ usando Streamlit</footer>', unsafe_allow_html=True)
-
-
+# Footer personalizado
+st.markdown('<footer>✨ Grecia García Hoyos | Este portafolio es un reflejo de mi camino y creatividad ✨</footer>', unsafe_allow_html=True)
 
